@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="main">
+        <div class="intro">
+            <div class="intro__video">
+                <video class="intro__video-bg" src="video/clouds.mp4" autoplay muted loop></video>
+            </div>
+            <div class="intro__content">
+                <div class="container">
+                    <div class="weather">
+                        <div class="weather__header">
+                            <h1 class="weather__city-name"></h1>
+                            <form class="weather__header-form weather-form">
+                                <input class="weather-form__search" type="text" placeholder="Cменить город">
+                                <button class="weather-form__btn-search">Поиск</button>
+                                <button class="weather-form__btn-geolacation">ваш город</button>
+                            </form>
+                        </div>
+
+                        <div class="weather__midle">
+                            <img class="weather__icon" src="" alt="clouds">
+                            <p>
+                            <h2 class="weather__deg"></h2>&deg</p>
+                        </div>
+
+                        <div class="weather__bottom">
+                            <h1 class="weather__name"></h1>
+                            <span class="weather__clouds"></span>
+                            <p class="weather__feels-show"> ощущаемая температура <span
+                                    class="weather__feels-like"></span> &deg
+                            </p>
+                            <p class="weather__humidity-show">влажность <span class="weather__feels-humidity"></span>%
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

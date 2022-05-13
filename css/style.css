@@ -1,0 +1,166 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  font-size: 30px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1430px;
+  padding: 0 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.weather {
+  padding: 50px 0;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.weather__header {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.weather__midle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.weather__deg {
+  font-size: 70px;
+}
+
+.weather__icon {
+  width: 100px;
+}
+
+.weather__bottom {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.weather-form__search {
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  max-width: 600px;
+  width: 100%;
+  outline: none;
+}
+
+.weather-form__search::-webkit-input-placeholder {
+  font-size: 15px;
+}
+
+.weather-form__search:-ms-input-placeholder {
+  font-size: 15px;
+}
+
+.weather-form__search::-ms-input-placeholder {
+  font-size: 15px;
+}
+
+.weather-form__search::placeholder {
+  font-size: 15px;
+}
+
+.weather-form__btn {
+  background-color: transparent;
+  border: none;
+  border: 1px solid #fff;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.intro {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.intro::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.intro__video {
+  position: relative;
+  z-index: 1;
+}
+
+.intro__content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+/*# sourceMappingURL=style.css.map */
