@@ -52,7 +52,7 @@ img {
 
 .weather {
     transform: translateY(50%);
-    padding: 50px 0;
+    padding: 50px;
     height: 50vh;
     display: flex;
     justify-content: space-between;
@@ -62,8 +62,34 @@ img {
     border-radius: 25px;
 
     &__header {
-        width: 80%;
-        margin: 0 auto;
+        width: 100%;
+
+    }
+
+    &__header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__time-sun {
+        span {
+            display: block;
+        }
+    }
+
+    &__time-sunrise__time {
+        &::before {
+            content: 'Рассвет';
+            margin-right: 15px;
+        }
+    }
+
+    &__time-sunset__time {
+        &::before {
+            content: 'Закат';
+            margin-right: 15px;
+        }
     }
 
     &__city-name {

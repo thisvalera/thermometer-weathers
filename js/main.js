@@ -16,6 +16,8 @@ setInterval(() => {
 });
 
 
+
+
 const getResponse = async (nameCity) => {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${nameCity}&lang=ru&appid=fecd0fb94f869b345e364c21d98455f9`);
@@ -28,7 +30,14 @@ const getResponse = async (nameCity) => {
         weatherParameters.clouds = responseResult.weather[0].description;
         weatherParameters.precipitation = responseResult.weather[0].main;
         weatherParameters.icon = `http://openweathermap.org/img/w/${responseResult.weather[0].icon}.png`;
-        console.log(responseResult)
+        const sunrise = responseResult.sys.sunrise;
+        weatherParameters.timeSunrise = new Date((sunrise + responseResult.timezone) * 1000);
+        weatherParameters.timeSunrise = `${weatherParameters.timeSunrise.getUTCHours()}:${weatherParameters.timeSunrise.getMinutes() < 10 ?
+            '0' + weatherParameters.timeSunrise.getMinutes() : weatherParameters.timeSunrise.getMinutes()}`;
+        const sunset = responseResult.sys.sunset;
+        weatherParameters.timeSunset = new Date((sunset + responseResult.timezone) * 1000);
+        weatherParameters.timeSunset = `${weatherParameters.timeSunset.getUTCHours()}:${weatherParameters.timeSunset.getMinutes() < 10 ?
+            '0' + weatherParameters.timeSunset.getMinutes() : weatherParameters.timeSunset.getMinutes()}`;
         showWeather();
         changeBackground();
     }
@@ -58,6 +67,8 @@ function showWeather() {
     document.querySelector('.weather__deg').textContent = weatherParameters.temperature;
     document.querySelector('.weather__feels-like').textContent = weatherParameters.feelsLike;
     document.querySelector('.weather__icon').src = weatherParameters.icon;
+    document.querySelector('.weather__time-sunrise__time').textContent = weatherParameters.timeSunrise;
+    document.querySelector('.weather__time-sunset__time').textContent = weatherParameters.timeSunset;
 }
 
 getResponse('Киев');
