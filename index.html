@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
@@ -20,6 +23,9 @@
                     <div class="weather">
                         <div class="weather__header">
                             <h1 class="weather__city-name"></h1>
+                            <div class="weather__city-date">
+                                <span class="weather__city-hours"></span>:<span class="weather__city-minutes"></span>
+                            </div>
                             <form class="weather__header-form weather-form">
                                 <input class="weather-form__search" type="text" placeholder="Cменить город">
                                 <button class="weather-form__btn-search">Поиск</button>
@@ -34,12 +40,13 @@
                         </div>
 
                         <div class="weather__bottom">
-                            <h1 class="weather__name"></h1>
-                            <span class="weather__clouds"></span>
-                            <p class="weather__feels-show"> ощущаемая температура <span
+                            <!-- <h1 class="weather__name weather__bottom-child"></h1> -->
+                            <span class="weather__clouds weather__bottom-child"></span>
+                            <p class="weather__feels-show weather__bottom-child"> ощущаемая температура <span
                                     class="weather__feels-like"></span> &deg
                             </p>
-                            <p class="weather__humidity-show">влажность <span class="weather__feels-humidity"></span>%
+                            <p class="weather__humidity-show weather__bottom-child">влажность
+                                <span class="weather__feels-humidity"></span>%
                             </p>
                         </div>
                     </div>
