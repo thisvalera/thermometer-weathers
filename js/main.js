@@ -39,13 +39,13 @@ const getResponse = async (nameCity) => {
 
 function changeBackground() {
     switch (weatherParameters.precipitation) {
-        case 'Rain': backGroundVideo.src = '../video/rain.mp4';
+        case 'Rain': backGroundVideo.src = 'video/rain.mp4';
             break;
         case 'Clouds':
-            backGroundVideo.src = '../video/clouds.mp4';
+            backGroundVideo.src = 'video/clouds.mp4';
             break;
         case 'Snow':
-            backGroundVideo.src = '../video/snow.mp4';
+            backGroundVideo.src = 'video/snow.mp4';
             break;
     }
 
