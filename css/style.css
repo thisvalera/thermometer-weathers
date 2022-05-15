@@ -30,7 +30,7 @@ dd {
 }
 
 body {
-  font-size: 30px;
+  font-size: 22px;
   line-height: 1.5;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -43,7 +43,7 @@ img {
 }
 
 .container {
-  max-width: 1430px;
+  max-width: 1000px;
   padding: 0 15px;
   margin: 0 auto;
   width: 100%;
@@ -105,6 +105,10 @@ img {
   font-weight: 700;
 }
 
+.weather__city-date {
+  font-size: 45px;
+}
+
 .weather__midle {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -138,61 +142,71 @@ img {
 .weather__bottom-child {
   background-color: rgba(0, 0, 0, 0.233);
   border-radius: 25px;
-  padding: 5px;
+  padding: 10px;
+  font-size: 15px;
 }
 
 .weather__bottom-child + .weather__bottom-child {
   margin-left: 35px;
 }
 
-.weather-form__input-container {
-  position: relative;
-}
-
-.weather-form__input-container::after {
-  content: '';
-  position: absolute;
-  height: 20px;
-  width: 20px;
-  top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  background-image: url("../img/search.svg");
-  background-repeat: no-repeat;
-}
-
 .weather-form__search {
   border-radius: 10px;
   border: none;
-  padding: 4px;
+  padding: 0 23px;
   max-width: 600px;
-  width: 2.5%;
+  width: 17.5%;
   outline: none;
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.281);
+  background-color: transparent;
+}
+
+.weather-form__search:hover {
+  cursor: pointer;
 }
 
 .weather-form__search::-webkit-input-placeholder {
   font-size: 15px;
+  color: #fff;
 }
 
 .weather-form__search:-ms-input-placeholder {
   font-size: 15px;
+  color: #fff;
 }
 
 .weather-form__search::-ms-input-placeholder {
   font-size: 15px;
+  color: #fff;
 }
 
 .weather-form__search::placeholder {
   font-size: 15px;
+  color: #fff;
 }
 
 .weather-form__search:focus {
   width: 100%;
   padding: 10px;
+  background-color: rgba(209, 208, 208, 0.322);
+  cursor: auto;
+}
+
+.weather-form__search:focus::-webkit-input-placeholder {
+  font-size: 0;
+}
+
+.weather-form__search:focus:-ms-input-placeholder {
+  font-size: 0;
+}
+
+.weather-form__search:focus::-ms-input-placeholder {
+  font-size: 0;
+}
+
+.weather-form__search:focus::placeholder {
+  font-size: 0;
 }
 
 .weather-form__btn-search {
@@ -202,6 +216,33 @@ img {
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.weather-form__btn-geolacation {
+  background-color: transparent;
+  font-size: 12px;
+  padding: 8px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 43px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  display: block;
+  position: relative;
+  padding-left: 25px;
+}
+
+.weather-form__btn-geolacation::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 0;
+  top: 50%;
+  background-image: url("../img/geo.svg");
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .intro {
