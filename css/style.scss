@@ -134,11 +134,22 @@ img {
 }
 
 .weather-form {
+    &__btn-search {
+        background-color: transparent;
+        border: none;
+        visibility: hidden;
+        background-color: rgba(255, 255, 255, 0.11);
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+
+    }
+
     &__search {
         border-radius: 10px;
         border: none;
         padding: 0 23px;
-        max-width: 600px;
+        max-width: 400px;
         width: 17.5%;
         outline: none;
         transition: all .5s ease-in-out;
@@ -146,11 +157,16 @@ img {
 
         &:hover {
             cursor: pointer;
+
+            &::placeholder {
+                transform: scale(1.1);
+            }
         }
 
         &::placeholder {
             font-size: 15px;
             color: $accent-color;
+            transition: all .3s;
         }
 
         &:focus {
@@ -158,6 +174,11 @@ img {
             padding: 10px;
             background-color: rgba(209, 208, 208, 0.322);
             cursor: auto;
+            margin-bottom: 15px;
+
+            &+.weather-form__btn-search {
+                visibility: visible;
+            }
 
             &::placeholder {
                 font-size: 0;
@@ -167,15 +188,7 @@ img {
 
     }
 
-    &__btn-search {
-        background-color: transparent;
-        border: none;
-        background-color: rgba(255, 255, 255, 0.11);
-        padding: 10px;
-        border-radius: 10px;
-        cursor: pointer;
 
-    }
 
     &__btn-geolacation {
         background-color: transparent;
@@ -190,6 +203,11 @@ img {
         display: block;
         position: relative;
         padding-left: 25px;
+        transition: all .3s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
 
         &::before {
             content: '';

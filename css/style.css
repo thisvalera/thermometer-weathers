@@ -150,11 +150,21 @@ img {
   margin-left: 35px;
 }
 
+.weather-form__btn-search {
+  background-color: transparent;
+  border: none;
+  visibility: hidden;
+  background-color: rgba(255, 255, 255, 0.11);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 .weather-form__search {
   border-radius: 10px;
   border: none;
   padding: 0 23px;
-  max-width: 600px;
+  max-width: 400px;
   width: 17.5%;
   outline: none;
   -webkit-transition: all .5s ease-in-out;
@@ -166,24 +176,50 @@ img {
   cursor: pointer;
 }
 
+.weather-form__search:hover::-webkit-input-placeholder {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.weather-form__search:hover:-ms-input-placeholder {
+  transform: scale(1.1);
+}
+
+.weather-form__search:hover::-ms-input-placeholder {
+  transform: scale(1.1);
+}
+
+.weather-form__search:hover::placeholder {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .weather-form__search::-webkit-input-placeholder {
   font-size: 15px;
   color: #fff;
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 
 .weather-form__search:-ms-input-placeholder {
   font-size: 15px;
   color: #fff;
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 
 .weather-form__search::-ms-input-placeholder {
   font-size: 15px;
   color: #fff;
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 
 .weather-form__search::placeholder {
   font-size: 15px;
   color: #fff;
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 
 .weather-form__search:focus {
@@ -191,6 +227,11 @@ img {
   padding: 10px;
   background-color: rgba(209, 208, 208, 0.322);
   cursor: auto;
+  margin-bottom: 15px;
+}
+
+.weather-form__search:focus + .weather-form__btn-search {
+  visibility: visible;
 }
 
 .weather-form__search:focus::-webkit-input-placeholder {
@@ -209,15 +250,6 @@ img {
   font-size: 0;
 }
 
-.weather-form__btn-search {
-  background-color: transparent;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.11);
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
 .weather-form__btn-geolacation {
   background-color: transparent;
   font-size: 12px;
@@ -231,6 +263,13 @@ img {
   display: block;
   position: relative;
   padding-left: 25px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.weather-form__btn-geolacation:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .weather-form__btn-geolacation::before {

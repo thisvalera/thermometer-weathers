@@ -20,11 +20,12 @@ const getResponse = async (nameCity) => {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${nameCity}&lang=ru&appid=fecd0fb94f869b345e364c21d98455f9`);
         const responseResult = await response.json();
         const { name, timezone, dt: date, } = responseResult;
-        const { temp, feels_like: feelsLike, humidity, } = responseResult.main;
+        const { temp, feels_like: feelsLike, humidity, pressure } = responseResult.main;
         const { description, main, icon, } = responseResult.weather[0];
-        weatherParameters = { name, timezone, date, humidity, feelsLike, temp, description, main, icon, };
+        weatherParameters = { name, timezone, date, humidity, feelsLike, temp, description, main, icon, pressure };
         weatherParameters.timeSunrise = new Date((responseResult.sys.sunrise + timezone) * 1000);
         weatherParameters.timeSunset = new Date((responseResult.sys.sunset + timezone) * 1000);
+        console.log(responseResult);
         showWeather();
         changeBackground();
     }
@@ -34,7 +35,7 @@ const getResponse = async (nameCity) => {
 }
 
 function changeBackground() {
-    switch (weatherParameters.precipitation) {
+    switch (weatherParameters.main) {
         case 'Rain': backGroundVideo.src = 'video/rain.mp4';
             break;
         case 'Clouds':
@@ -46,12 +47,14 @@ function changeBackground() {
     }
 
 }
+searchCityButton.addEventListener('mousedown', (event) => event.preventDefault());
 
 function showWeather() {
     document.querySelector('.weather__city-name').textContent = weatherParameters.name;
     document.querySelector('.weather__clouds').textContent = weatherParameters.description;
     document.querySelector('.weather__feels-humidity').textContent = weatherParameters.humidity;
-    document.querySelector('.weather__deg').innerHTML = Math.round(weatherParameters.temp);
+    document.querySelector('.weather__feels-pressure').textContent = weatherParameters.pressure;
+    document.querySelector('.weather__deg').innerHTML = Math.round(weatherParameters.temp) + '°';
     document.querySelector('.weather__feels-like').textContent = Math.round(weatherParameters.feelsLike);
     document.querySelector('.weather__icon').src = `http://openweathermap.org/img/w/${weatherParameters.icon}.png`;
     document.querySelector('.weather__time-sunrise__time').textContent =
@@ -69,6 +72,7 @@ searchCityButton.addEventListener('click', (event) => {
     getResponse(searchCityInput.value);
     weatherParameters.nameCity = searchCityInput.value;
     searchCityInput.value = '';
+    searchCityInput.blur();
     changeBackground();
 });
 
