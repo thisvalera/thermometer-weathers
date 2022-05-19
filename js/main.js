@@ -26,8 +26,8 @@ const getResponse = async (nameCity) => {
         weatherParameters.timeSunrise = new Date((responseResult.sys.sunrise + timezone) * 1000);
         weatherParameters.timeSunset = new Date((responseResult.sys.sunset + timezone) * 1000);
         console.log(responseResult);
-        showWeather();
         changeBackground();
+        showWeather();
     }
     catch {
         document.querySelector('.weather__city-name').textContent = 'Город не найден'
@@ -56,7 +56,7 @@ function showWeather() {
     document.querySelector('.weather__feels-pressure').textContent = weatherParameters.pressure;
     document.querySelector('.weather__deg').innerHTML = Math.round(weatherParameters.temp) + '°';
     document.querySelector('.weather__feels-like').textContent = Math.round(weatherParameters.feelsLike);
-    // document.querySelector('.weather__icon').src = `http://openweathermap.org/img/w/${weatherParameters.icon}.png`;
+    changeIcon();
     document.querySelector('.weather__time-sunrise__time').textContent =
         `${weatherParameters.timeSunrise.getUTCHours()}:${weatherParameters.timeSunrise.getMinutes() < 10 ?
             '0' + weatherParameters.timeSunrise.getMinutes() : weatherParameters.timeSunrise.getMinutes()}`;
@@ -64,6 +64,19 @@ function showWeather() {
     document.querySelector('.weather__time-sunset__time').textContent =
         `${weatherParameters.timeSunset.getUTCHours()}:${weatherParameters.timeSunset.getMinutes() < 10 ?
             '0' + weatherParameters.timeSunset.getMinutes() : weatherParameters.timeSunset.getMinutes()}`;
+}
+
+function changeIcon() {
+    const showIcon = document.querySelector('.weather__icon');
+    switch (weatherParameters.icon) {
+        case '04n': showIcon.setAttribute('xlink:href', '#bigCloudRain');
+            break;
+        case '02n': showIcon.setAttribute('xlink:href', '#cloudy');
+            break;
+        case '09n': showIcon.setAttribute('xlink:href', '#rainCloud');
+            break;
+        default: showIcon.setAttribute('xlink:href', '#sunCleare');
+    }
 }
 
 getResponse('Киев');

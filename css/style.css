@@ -325,11 +325,6 @@ svg {
           animation: bgCloud 6s linear infinite;
 }
 
-#bigCloudRain path {
-  -webkit-animation: cloud-color 8s ease infinite;
-          animation: cloud-color 8s ease infinite;
-}
-
 #drop1 {
   -webkit-animation: droplet 1s linear infinite;
           animation: droplet 1s linear infinite;
@@ -420,6 +415,11 @@ svg {
 #bigClouds path {
   -webkit-animation: thunder-cloud 6s ease infinite;
           animation: thunder-cloud 6s ease infinite;
+}
+
+#bigCloudRain path {
+  -webkit-animation: mainly-cloudy 6s ease infinite;
+          animation: mainly-cloudy 6s ease infinite;
 }
 
 @-webkit-keyframes bgCloud {
@@ -535,6 +535,30 @@ svg {
   }
   100% {
     fill: #F4F4F4;
+  }
+}
+
+@-webkit-keyframes mainly-cloudy {
+  0% {
+    fill: #F4F4F4;
+  }
+  50% {
+    fill: #c4c4c4;
+  }
+  100% {
+    fill: #3c4858;
+  }
+}
+
+@keyframes mainly-cloudy {
+  0% {
+    fill: #F4F4F4;
+  }
+  50% {
+    fill: #c4c4c4;
+  }
+  100% {
+    fill: #3c4858;
   }
 }
 
@@ -795,7 +819,6 @@ svg {
 }
 
 @-webkit-keyframes thunder-bolt {
-  100%,
   0% {
     opacity: 0;
   }
@@ -814,7 +837,6 @@ svg {
 }
 
 @keyframes thunder-bolt {
-  100%,
   0% {
     opacity: 0;
   }
