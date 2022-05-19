@@ -56,7 +56,7 @@ function showWeather() {
     document.querySelector('.weather__feels-pressure').textContent = weatherParameters.pressure;
     document.querySelector('.weather__deg').innerHTML = Math.round(weatherParameters.temp) + '°';
     document.querySelector('.weather__feels-like').textContent = Math.round(weatherParameters.feelsLike);
-    document.querySelector('.weather__icon').src = `http://openweathermap.org/img/w/${weatherParameters.icon}.png`;
+    // document.querySelector('.weather__icon').src = `http://openweathermap.org/img/w/${weatherParameters.icon}.png`;
     document.querySelector('.weather__time-sunrise__time').textContent =
         `${weatherParameters.timeSunrise.getUTCHours()}:${weatherParameters.timeSunrise.getMinutes() < 10 ?
             '0' + weatherParameters.timeSunrise.getMinutes() : weatherParameters.timeSunrise.getMinutes()}`;
