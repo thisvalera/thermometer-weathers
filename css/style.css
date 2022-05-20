@@ -921,7 +921,7 @@ svg {
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 376px) {
   .weather {
     padding: 10px;
   }
