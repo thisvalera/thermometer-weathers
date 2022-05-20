@@ -4,6 +4,33 @@ const backGroundVideo = document.querySelector('.intro__video-bg');
 const geloacationButton = document.querySelector('.weather-form__btn-geolacation');
 let weatherParameters = {};
 
+const slider = new Swiper('.swiper', {
+    autoplay: {
+        delay: 5000,
+    },
+    scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true,
+    },
+
+
+    breakpoints: {
+        446: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+
+        },
+        680: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+
+        }
+    }
+
+
+});
+
+
 //real time
 setInterval(() => {
     const dateTime = new Date();
@@ -69,11 +96,11 @@ function showWeather() {
 function changeIcon() {
     const showIcon = document.querySelector('.weather__icon');
     switch (weatherParameters.icon) {
-        case '04n': showIcon.setAttribute('xlink:href', '#bigCloudRain');
+        case '04d': showIcon.setAttribute('xlink:href', '#bigCloudRain');
             break;
-        case '02n': showIcon.setAttribute('xlink:href', '#cloudy');
+        case '02d': showIcon.setAttribute('xlink:href', '#cloudy');
             break;
-        case '09n': showIcon.setAttribute('xlink:href', '#rainCloud');
+        case '10d': showIcon.setAttribute('xlink:href', '#rainCloud');
             break;
         default: showIcon.setAttribute('xlink:href', '#sunCleare');
     }
@@ -105,4 +132,8 @@ function geolocal(event) {
 }
 
 geloacationButton.addEventListener('click', geolocal);
+
+
+
+
 

@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
@@ -249,18 +250,20 @@
                             <h2 class="weather__deg"></h2>
                             </p>
                         </div>
-
-                        <div class="weather__bottom">
-                            <span class="weather__clouds weather__bottom-child"></span>
-                            <p class="weather__feels-show weather__bottom-child"> ощущаемая температура <span
-                                    class="weather__feels-like"></span>°
-                            </p>
-                            <p class="weather__humidity-show weather__bottom-child">влажность
-                                <span class="weather__feels-humidity"></span>%
-                            </p>
-                            <p class="weather__pressure-show weather__bottom-child">давление
-                                <span class="weather__feels-pressure"></span> мм.рт.ст
-                            </p>
+                        <div class="swiper">
+                            <div class="weather__bottom swiper-wrapper">
+                                <span class="weather__clouds weather__bottom-child swiper-slide"></span>
+                                <p class="weather__feels-show weather__bottom-child swiper-slide"> ощущается
+                                    как <span class="weather__feels-like"></span>°
+                                </p>
+                                <p class="weather__humidity-show weather__bottom-child swiper-slide">влажность
+                                    <span class="weather__feels-humidity"></span>%
+                                </p>
+                                <p class="weather__pressure-show weather__bottom-child swiper-slide">давление
+                                    <span class="weather__feels-pressure"></span> мм.рт.ст
+                                </p>
+                            </div>
+                            <div class="swiper-scrollbar"></div>
                         </div>
                     </div>
 
@@ -271,7 +274,7 @@
 
     </main>
 
-
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 
