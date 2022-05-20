@@ -12,8 +12,6 @@ const slider = new Swiper('.swiper', {
         el: '.swiper-scrollbar',
         draggable: true,
     },
-
-
     breakpoints: {
         446: {
             slidesPerView: 2,
@@ -26,8 +24,6 @@ const slider = new Swiper('.swiper', {
 
         }
     }
-
-
 });
 
 
@@ -96,9 +92,17 @@ function showWeather() {
 function changeIcon() {
     const showIcon = document.querySelector('.weather__icon');
     switch (weatherParameters.icon) {
+        case '01n': showIcon.setAttribute('xlink:href', '#nigtCleare');
+            break;
         case '04d': showIcon.setAttribute('xlink:href', '#bigCloudRain');
             break;
+        case '04n': showIcon.setAttribute('xlink:href', '#bigCloudRain');
+            break;
+        case '03d': showIcon.setAttribute('xlink:href', '#dayMinClouds');
+            break;
         case '02d': showIcon.setAttribute('xlink:href', '#cloudy');
+            break;
+        case '03n': showIcon.setAttribute('xlink:href', '#nightMinClouds');
             break;
         case '10d': showIcon.setAttribute('xlink:href', '#rainCloud');
             break;

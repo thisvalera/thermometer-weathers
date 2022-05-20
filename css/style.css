@@ -157,6 +157,18 @@ img {
   top: 85%;
 }
 
+.swiper-scrollbar-drag {
+  background-color: #dbdbdb9c;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.swiper-scrollbar-drag:hover {
+  background-color: #fff;
+}
+
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
   right: 15%;
@@ -180,7 +192,7 @@ img {
 .weather-form__search {
   border-radius: 10px;
   border: none;
-  padding: 0 23px;
+  padding: 0px 23px;
   max-width: 400px;
   width: 17.5%;
   outline: none;
