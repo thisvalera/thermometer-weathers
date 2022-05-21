@@ -113,7 +113,7 @@ function changeIcon() {
 getResponse('Киев');
 searchCityButton.addEventListener('click', (event) => {
     event.preventDefault();
-    getResponse(searchCityInput.value);
+    getResponse(searchCityInput.value.trim());
     weatherParameters.nameCity = searchCityInput.value;
     searchCityInput.value = '';
     searchCityInput.blur();
