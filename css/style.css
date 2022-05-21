@@ -30,8 +30,9 @@ dd {
 }
 
 .intro {
-  max-height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 
 .intro::after {
@@ -47,7 +48,7 @@ dd {
 }
 
 .intro__video {
-  position: relative;
+  position: absolute;
   z-index: 1;
 }
 
@@ -91,8 +92,7 @@ img {
 }
 
 .weather {
-  -webkit-transform: translateY(50%);
-          transform: translateY(50%);
+  margin-top: 30%;
   padding: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -898,9 +898,6 @@ svg {
   }
   .weather__time-sun {
     font-size: 17px;
-  }
-  .weather-form__search {
-    padding: 0;
   }
   .weather-form__search:focus {
     width: 70%;

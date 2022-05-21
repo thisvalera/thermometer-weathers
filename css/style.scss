@@ -28,8 +28,10 @@ dd {
 }
 
 .intro {
-    max-height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
+    position: relative;
+
 
     &::after {
         content: '';
@@ -44,7 +46,7 @@ dd {
     }
 
     &__video {
-        position: relative;
+        position: absolute;
         z-index: 1;
     }
 
@@ -92,7 +94,7 @@ img {
 }
 
 .weather {
-    transform: translateY(50%);
+    margin-top: 30%;
     padding: 50px;
     display: flex;
     justify-content: space-between;
@@ -655,8 +657,6 @@ svg {
 
     .weather-form {
         &__search {
-            padding: 0;
-
             &:focus {
                 width: 70%;
             }
