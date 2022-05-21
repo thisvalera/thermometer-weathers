@@ -27,6 +27,37 @@ dd {
     margin: 0;
 }
 
+.intro {
+    max-height: 100vh;
+    overflow: hidden;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.2);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    &__video {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__content {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+    }
+}
+
 
 $accent-color: #fff;
 
@@ -178,7 +209,7 @@ img {
     &__search {
         border-radius: 10px;
         border: none;
-        padding: 0px 23px;
+        padding-left: 25px;
         max-width: 400px;
         width: 17.5%;
         outline: none;
@@ -249,37 +280,6 @@ img {
         }
     }
 
-}
-
-.intro {
-    max-height: 100vh;
-    overflow: hidden;
-
-    &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        background-color: rgba(0, 0, 0, 0.2);
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: 2;
-    }
-
-    &__video {
-        position: relative;
-        z-index: 1;
-    }
-
-    &__content {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 3;
-    }
 }
 
 
@@ -661,15 +661,16 @@ svg {
                 width: 70%;
             }
         }
-
-
     }
-
 }
 
 @media(max-width: 492px) {
     .weather {
         padding: 30px;
+
+        &__header-top {
+            flex-direction: column-reverse;
+        }
 
         &__deg {
             font-size: 50px;
@@ -680,7 +681,10 @@ svg {
         }
 
         &__time-sun {
-            font-size: 13px;
+            font-size: 17px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
         }
 
         &__city-name {
@@ -691,28 +695,27 @@ svg {
     .weather-form {
         &__search {
             width: 41%;
-            padding: 0;
 
             &:focus {
                 width: 70%;
             }
         }
+    }
 
-
+    .swiper-slide {
+        font-size: 14px;
     }
 
 }
 
 @media(max-width: 376px) {
     .weather {
-        padding: 10px;
 
-        &__city-name {
-            font-size: 18px;
-        }
-
-        &__city-date {
-            font-size: 18px;
+        &__time-sunset__time,
+        &__time-sunrise__time {
+            &::before {
+                margin-right: 7px;
+            }
         }
     }
 }

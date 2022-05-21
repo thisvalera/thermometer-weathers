@@ -29,6 +29,37 @@ dd {
   margin: 0;
 }
 
+.intro {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.intro::after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.intro__video {
+  position: relative;
+  z-index: 1;
+}
+
+.intro__content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
 body {
   font-size: 22px;
   line-height: 1.5;
@@ -192,7 +223,7 @@ img {
 .weather-form__search {
   border-radius: 10px;
   border: none;
-  padding: 0px 23px;
+  padding-left: 25px;
   max-width: 400px;
   width: 17.5%;
   outline: none;
@@ -311,37 +342,6 @@ img {
   background-image: url("../img/geo.svg");
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-}
-
-.intro {
-  max-height: 100vh;
-  overflow: hidden;
-}
-
-.intro::after {
-  content: '';
-  display: block;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.2);
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
-
-.intro__video {
-  position: relative;
-  z-index: 1;
-}
-
-.intro__content {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
 }
 
 svg {
@@ -911,6 +911,12 @@ svg {
   .weather {
     padding: 30px;
   }
+  .weather__header-top {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
   .weather__deg {
     font-size: 50px;
   }
@@ -918,29 +924,32 @@ svg {
     font-size: 25px;
   }
   .weather__time-sun {
-    font-size: 13px;
+    font-size: 17px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
   }
   .weather__city-name {
     font-size: 35px;
   }
   .weather-form__search {
     width: 41%;
-    padding: 0;
   }
   .weather-form__search:focus {
     width: 70%;
   }
+  .swiper-slide {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 376px) {
-  .weather {
-    padding: 10px;
-  }
-  .weather__city-name {
-    font-size: 18px;
-  }
-  .weather__city-date {
-    font-size: 18px;
+  .weather__time-sunset__time::before, .weather__time-sunrise__time::before {
+    margin-right: 7px;
   }
 }
 /*# sourceMappingURL=style.css.map */
