@@ -4,31 +4,22 @@ const backGroundVideo = document.querySelector('.intro__video-bg');
 const geloacationButton = document.querySelector('.weather-form__btn-geolacation');
 let weatherParameters = {};
 
-const slider = new Swiper('.swiper', {
-    autoplay: {
-        delay: 5000,
-    },
-    scrollbar: {
-        el: '.swiper-scrollbar',
-        draggable: true,
-    },
-    breakpoints: {
-        446: {
-            slidesPerView: 2,
-            spaceBetween: 10,
+geloacationButton.addEventListener('click', geolocal);
+getResponse('Киев');
+searchCityButton.addEventListener('mousedown', (event) => event.preventDefault());
 
-        },
-        680: {
-            slidesPerView: 3,
-            spaceBetween: 10,
-
-        }
-    }
+searchCityButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    getResponse(searchCityInput.value.trim());
+    weatherParameters.nameCity = searchCityInput.value;
+    searchCityInput.value = '';
+    searchCityInput.blur();
+    changeBackground();
 });
-
 
 //real time
 setInterval(() => {
+
     const dateTime = new Date();
     if (dateTime.getMinutes() < 10) {
         document.querySelector('.weather__city-minutes').innerHTML = '0' + dateTime.getMinutes();
@@ -38,7 +29,7 @@ setInterval(() => {
 
 });
 
-const getResponse = async (nameCity) => {
+async function getResponse(nameCity) {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${nameCity}&lang=ru&appid=fecd0fb94f869b345e364c21d98455f9`);
         const responseResult = await response.json();
@@ -57,6 +48,8 @@ const getResponse = async (nameCity) => {
     }
 }
 
+
+//change background
 function changeBackground() {
     switch (weatherParameters.main) {
         case 'Rain': backGroundVideo.src = 'video/rain.mp4';
@@ -70,7 +63,6 @@ function changeBackground() {
     }
 
 }
-searchCityButton.addEventListener('mousedown', (event) => event.preventDefault());
 
 function showWeather() {
     document.querySelector('.weather__city-name').textContent = weatherParameters.name;
@@ -89,6 +81,8 @@ function showWeather() {
             '0' + weatherParameters.timeSunset.getMinutes() : weatherParameters.timeSunset.getMinutes()}`;
 }
 
+
+//change icon for weather
 function changeIcon() {
     const showIcon = document.querySelector('.weather__icon');
     switch (weatherParameters.icon) {
@@ -110,16 +104,7 @@ function changeIcon() {
     }
 }
 
-getResponse('Киев');
-searchCityButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    getResponse(searchCityInput.value.trim());
-    weatherParameters.nameCity = searchCityInput.value;
-    searchCityInput.value = '';
-    searchCityInput.blur();
-    changeBackground();
-});
-
+//searchGeolocation
 function geolocal(event) {
     event.preventDefault();
     const options = { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 };
@@ -135,7 +120,28 @@ function geolocal(event) {
     navigator.geolocation.getCurrentPosition(succes, error, options)
 }
 
-geloacationButton.addEventListener('click', geolocal);
+//swiper slider for bottom content
+const slider = new Swiper('.swiper', {
+    autoplay: {
+        delay: 5000,
+    },
+    scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true,
+    },
+    breakpoints: {
+        446: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+
+        },
+        680: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+
+        }
+    }
+});
 
 
 

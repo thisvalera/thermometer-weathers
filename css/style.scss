@@ -69,6 +69,9 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     color: $accent-color;
+    moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
 }
 
 img {
@@ -144,6 +147,7 @@ img {
     &__midle {
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 
     &__deg {
