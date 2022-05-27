@@ -32,7 +32,6 @@ dd {
     overflow: hidden;
     position: relative;
 
-
     &::after {
         content: '';
         display: block;
@@ -59,7 +58,6 @@ dd {
         z-index: 3;
     }
 }
-
 
 $accent-color: #fff;
 
@@ -172,6 +170,9 @@ img {
         min-width: 0;
         text-align: center;
 
+        &::first-letter {
+            text-transform: uppercase;
+        }
     }
 }
 
@@ -186,7 +187,7 @@ img {
     cursor: grab;
 
     &:hover {
-        background-color: #fff;
+        background-color: $accent-color;
     }
 }
 
@@ -287,7 +288,6 @@ img {
     }
 
 }
-
 
 svg {
     width: 110px;
@@ -609,7 +609,6 @@ svg {
 
 @keyframes thunder-bolt {
 
-
     0% {
         opacity: 0;
     }
@@ -638,14 +637,12 @@ svg {
 
         }
     }
-
 }
 
 @media(max-width: 767px) {
     .swiper-slide {
         font-size: 12px;
     }
-
 }
 
 @media(max-width: 680px) {

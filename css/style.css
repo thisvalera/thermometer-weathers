@@ -191,6 +191,10 @@ img {
   text-align: center;
 }
 
+.weather__bottom-child::first-letter {
+  text-transform: uppercase;
+}
+
 .swiper-button-next,
 .swiper-button-prev {
   top: 85%;

@@ -2,6 +2,7 @@ const searchCityInput = document.querySelector('.weather-form__search');
 const searchCityButton = document.querySelector('.weather-form__btn-search');
 const backGroundVideo = document.querySelector('.intro__video-bg');
 const geloacationButton = document.querySelector('.weather-form__btn-geolacation');
+const dateTime = new Date();
 let weatherParameters = {};
 
 geloacationButton.addEventListener('click', geolocal);
@@ -14,20 +15,16 @@ searchCityButton.addEventListener('click', (event) => {
     weatherParameters.nameCity = searchCityInput.value;
     searchCityInput.value = '';
     searchCityInput.blur();
-    changeBackground();
 });
 
 //real time
-setInterval(() => {
-
-    const dateTime = new Date();
+function localTime(time) {
     if (dateTime.getMinutes() < 10) {
-        document.querySelector('.weather__city-minutes').innerHTML = '0' + dateTime.getMinutes();
+        document.querySelector('.weather__city-minutes').innerHTML = '0' + time.getMinutes();
     }
-    else document.querySelector('.weather__city-minutes').innerHTML = dateTime.getMinutes();
-    document.querySelector('.weather__city-hours').innerHTML = dateTime.getHours();
-
-});
+    else document.querySelector('.weather__city-minutes').innerHTML = time.getMinutes();
+    document.querySelector('.weather__city-hours').innerHTML = time.getUTCHours();
+}
 
 async function getResponse(nameCity) {
     try {
@@ -39,27 +36,32 @@ async function getResponse(nameCity) {
         weatherParameters = { name, timezone, date, humidity, feelsLike, temp, description, main, icon, pressure };
         weatherParameters.timeSunrise = new Date((responseResult.sys.sunrise + timezone) * 1000);
         weatherParameters.timeSunset = new Date((responseResult.sys.sunset + timezone) * 1000);
+        weatherParameters.localTime = new Date(((weatherParameters.date + weatherParameters.timezone) * 1000));
         console.log(responseResult);
+        localTime(weatherParameters.localTime)
         changeBackground();
         showWeather();
+
     }
     catch {
         document.querySelector('.weather__city-name').textContent = 'Город не найден'
     }
 }
 
-
 //change background
 function changeBackground() {
-    switch (weatherParameters.main) {
-        case 'Rain': backGroundVideo.src = 'video/rain.mp4';
-            break;
-        case 'Clouds':
-            backGroundVideo.src = 'video/clouds.mp4';
-            break;
-        case 'Snow':
-            backGroundVideo.src = 'video/snow.mp4';
-            break;
+    if (weatherParameters.localTime.getUTCHours() >= 21 || weatherParameters.localTime.getUTCHours() < weatherParameters.timeSunrise.getUTCHours()) backGroundVideo.src = 'video/cloud-night.mp4';
+    else {
+        switch (weatherParameters.main) {
+            case 'Rain': backGroundVideo.src = 'video/rain.mp4';
+                break;
+            case 'Clouds':
+                backGroundVideo.src = 'video/clouds.mp4';
+                break;
+            case 'Snow':
+                backGroundVideo.src = 'video/snow.mp4';
+                break;
+        }
     }
 
 }
@@ -81,12 +83,13 @@ function showWeather() {
             '0' + weatherParameters.timeSunset.getMinutes() : weatherParameters.timeSunset.getMinutes()}`;
 }
 
-
 //change icon for weather
 function changeIcon() {
     const showIcon = document.querySelector('.weather__icon');
     switch (weatherParameters.icon) {
         case '01n': showIcon.setAttribute('xlink:href', '#nigtCleare');
+            break;
+        case '02n': showIcon.setAttribute('xlink:href', '#nightMinClouds');
             break;
         case '04d': showIcon.setAttribute('xlink:href', '#bigCloudRain');
             break;
@@ -96,9 +99,12 @@ function changeIcon() {
             break;
         case '02d': showIcon.setAttribute('xlink:href', '#cloudy');
             break;
-        case '03n': showIcon.setAttribute('xlink:href', '#nightMinClouds');
+        case '03n':
+            showIcon.setAttribute('xlink:href', '#nightMinClouds');
             break;
         case '10d': showIcon.setAttribute('xlink:href', '#rainCloud');
+            break;
+        case '10n': showIcon.setAttribute('xlink:href', '#rainCloud');
             break;
         default: showIcon.setAttribute('xlink:href', '#sunCleare');
     }
